@@ -1,0 +1,3 @@
+#!/bin/bash
+new_script='until $*IN.eof { $_ = =$*IN; '${@:2:2}'; say $_; }'
+perl6 "${@:1:1}" "$new_script" "${@:3}"
