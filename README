@@ -1,0 +1,35 @@
+pun
+===
+
+The name "pun" is not an acronym meaning "-p und -n", and whoever told you
+that was gravely misinformed. I can definitely see how such a rumour might get
+started, though.
+
+pun is Copyright (C) 2009, the pun contributors (as listed in AUTHORS).
+
+usage
+=====
+
+In the following test runs, there's a command, then a line of input, a line of
+output, and finally a manual EOF.
+
+$ ./perl6n -e 'say eval($_)'
+(~[*] 1..4).reverse
+42
+^D
+
+$ ./perl6p -e '$_ = $_.subst(/(\d+) \+ (\d+)/, {$0+$1}, :g)'
+"24+18!" he shouted amicably.
+"42!" he shouted amicably.
+^D
+
+You might want to put the 'perl6n' and 'perl6p' scripts in the way of your
+$PATH. That way, you can skip the initial './' above.
+
+LICENSE INFORMATION
+-------------------
+
+pun is free software; you can redistribute it and/or modify it under the
+terms of the Artistic License 2.0.  (Note that, unlike the Artistic License
+1.0, version 2.0 is GPL compatible by itself, hence there is no benefit to
+having an Artistic 2.0 / GPL disjunction.)
