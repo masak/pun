@@ -1,4 +1,4 @@
 #!/bin/bash
 # RAKUDO: the 'last if $*IN.eof;' is needed because of [perl #60142]
-new_script='until $*IN.eof { $_ = =$*IN; last if $*IN.eof; '${@:2:2}' }'
-perl6 "${@:1:1}" "$new_script" "${@:3}"
+new_script='until $*IN.eof { $_ = =$*IN; last if $*IN.eof; '${@:2:1}' }'
+cat "${@:3}" | perl6 "${@:1:1}" "$new_script"
