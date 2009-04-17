@@ -5,26 +5,43 @@ The name "pun" is not an acronym meaning "-p und -n", and whoever might have
 told you that was gravely misinformed. I can definitely see how such a rumour
 gets started, though.
 
+It also doesn't mean "Perl6 understands -n", "probably ultimately neglected",
+"proudly undermining normality", or "print unusually neatly".
+
+For all the things it doesn't mean, pun gives you the -p and -n flags before
+they exist in Rakudo. It's two simple wrappers that simulate those flags.
+
 pun is Copyright (C) 2009, the pun contributors (as listed in AUTHORS).
 
 usage
 =====
 
-In the following test runs, there's a command, then a line of input, a line of
-output, and finally a manual EOF.
+In the following examples, the input (and possibly the output) follows directly
+on the program, until a manual end-of-file (^D).
 
-$ ./perl6n -e 'say eval($_)'
-(~[*] 1..4).reverse
-42
+$ perl6n -e ' # let's make a wc clone
+    BEGIN { $*lines = $*words = $*chars = 0 };
+    ++$*lines;
+    $*words += .split(/\h+/);
+    $*chars += .chars + 1;
+    END { say sprintf "%8d" x 3, $*lines, $*words, $*chars }'
+foo bar baz
 ^D
+       1       3      12
 
-$ ./perl6p -e '$_ = $_.subst(/(\d+) \+ (\d+)/, {$0+$1}, :g)'
-"24+18!" he shouted amicably.
-"42!" he shouted amicably.
+$ perl6p -e '$_ .=flip' # here's a rev clone (RAKUDO: .=flip)
+I CAN HAZ BACKWARDS?
+?SDRAWKCAB ZAH NAC I
 ^D
 
 You might want to put the 'perl6n' and 'perl6p' scripts in the way of your
 $PATH. That way, you can skip the initial './' above.
+
+bugs
+====
+
+If you have a syntax error in your program and accepting input from STDIN,
+you'll get the error, but input is still uselessly read from STDIN.
 
 LICENSE INFORMATION
 -------------------
