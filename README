@@ -19,17 +19,16 @@ usage
 In the following examples, the input (and possibly the output) follows directly
 on the program, until a manual end-of-file (^D).
 
-$ perl6n -e ' # let's make a wc clone
-    BEGIN { $*lines = $*words = $*chars = 0 };
-    ++$*lines;
-    $*words += .split(/\h+/);
+$ ./perl6n -e ' # let's make a wc clone
+    BEGIN { $*words = $*chars = 0 };
+    $*words += .words;
     $*chars += .chars + 1;
-    END { say sprintf "%8d" x 3, $*lines, $*words, $*chars }'
+    END { say sprintf "%8d" x 3, $*IN.ins - 1, $*words, $*chars }'
 foo bar baz
 ^D
        1       3      12
 
-$ perl6p -e '$_ .=flip' # here's a rev clone (RAKUDO: .=flip)
+$ ./perl6p -e '$_ .=flip' # here's a rev clone (RAKUDO: .=flip)
 I CAN HAZ BACKWARDS?
 ?SDRAWKCAB ZAH NAC I
 ^D
