@@ -36,12 +36,6 @@ I CAN HAZ BACKWARDS?
 You might want to put the 'perl6n' and 'perl6p' scripts in the way of your
 $PATH. That way, you can skip the initial './' above.
 
-bugs
-====
-
-If you have a syntax error in your program and accepting input from STDIN,
-you'll get the error, but input is still uselessly read from STDIN.
-
 LICENSE INFORMATION
 -------------------
 
