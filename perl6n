@@ -1,3 +1,2 @@
 #!/bin/bash
-# RAKUDO: the 'last if $*IN.eof;' is needed because of [perl #60142]
 ./perl6x "${@:2:1}" ${@:3}
