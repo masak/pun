@@ -28,7 +28,7 @@ foo bar baz
 ^D
        1       3      12
 
-$ ./perl6p -e '$_ .=flip' # here's a rev clone (RAKUDO: .=flip)
+$ ./perl6p -e .=flip # here's a rev clone
 I CAN HAZ BACKWARDS?
 ?SDRAWKCAB ZAH NAC I
 ^D
