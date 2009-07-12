@@ -1,7 +1,6 @@
 #!/bin/bash
-# RAKUDO: the 'last if $*IN.eof;' is needed because of [perl #60142]
 loop_body="${@:1:1}"
-new_script='until $*IN.eof { $_ = $*IN.get; last if $*IN.eof; '$loop_body' }'
+new_script='while ($_ = $*IN.get).defined { '$loop_body' }'
 if (perl6 -c -e "$new_script" > /dev/null 2>&1); then
     cat "${@:2}" | perl6 -e "$new_script"
 else
