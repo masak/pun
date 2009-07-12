@@ -19,7 +19,7 @@ usage
 In the following examples, the input (and possibly the output) follows directly
 on the program, until a manual end-of-file (^D).
 
-$ ./perl6n -e ' # let's make a wc clone
+$ ./perl6n -e ' # a wc clone
     BEGIN { $*words = $*chars = 0 };
     $*words += .words;
     $*chars += .chars + 1;
@@ -28,7 +28,7 @@ foo bar baz
 ^D
        1       3      12
 
-$ ./perl6p -e .=flip # here's a rev clone
+$ ./perl6p -e .=flip # a rev clone
 I CAN HAZ BACKWARDS?
 ?SDRAWKCAB ZAH NAC I
 ^D
